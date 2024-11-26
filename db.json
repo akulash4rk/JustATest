@@ -1,0 +1,298 @@
+{
+    "templates": {
+        "oneCard" :   {
+        "id": "firstContainer",
+        "type": "container",
+        "border": {
+        "corner_radius": 16,
+            "stroke": {
+                "width": 4,
+                "color": "#000"
+            }
+        },
+
+        "width" : {
+            "type": "fixed",
+            "value": "@{(widthMain / 2 - 50)}"
+        },
+
+        "height" : {
+            "type": "fixed",
+            "value": 150
+        }
+
+        },
+
+         "second" :   {
+        "id": "secondCont",
+        "type": "container",
+        "border": {
+        "corner_radius": 16,
+            "stroke": {
+                "width": 4,
+                "color": "#000"
+            }
+        },
+        "margins" : {
+            "top" : 16,
+            "left" : 16
+        },
+
+        "width" : {
+            "type": "fixed",
+            "value": "@{(widthMain - 48) / 2}"
+        },
+
+        "height" : {
+            "type": "fixed",
+            "value": 200
+        }
+
+        }
+    },
+
+    "card": {
+        
+
+
+        "variables": [
+            {
+                "name": "items",
+                "type": "array",
+                "value": [{
+                    "text" : "https://m.media-amazon.com/images/M/MV5BMTc5ODQzOTk0NV5BMl5BanBnXkFtZTgwODcwMDk4NTE@._V1_.jpg"
+                },
+                {
+                    "text" : "https://avatars.mds.yandex.net/i?id=f8e7ac9061865082a8561e835357e9d46c788bea-10414886-images-thumbs&n=13"
+                },
+                {
+                    "text" : "https://avatars.mds.yandex.net/i?id=4f7586d49edaa427e07a8819562fc284_l-5248434-images-thumbs&n=13"
+                },
+                {
+                    "text" : "https://s1.1zoom.ru/big3/273/353643-svetik.jpg"
+                },
+                {
+                    "text" : "https://i.pinimg.com/originals/8e/43/05/8e4305e5ca2524e022a75c5fdf0f1803.jpg"
+                }
+                ]
+            },
+            {
+                "name": "heightMain",
+                "type" : "integer",
+                "value": 0
+                 
+            },
+            {
+                "name": "widthMain",
+                "type" : "integer",
+                "value": 0
+               
+            },
+            {
+                "name": "spacing",
+                "type" : "integer",
+                "value": 16
+               
+            },
+            {
+                "name": "lastTappedBlock",
+                "type": "integer",
+                "value": 0
+            }
+        ],
+        "log_id": "id0",
+        "states": [
+            {
+                
+                "state_id": 0,
+                "div" :{
+                     
+                    "type": "container",
+                    
+                    "id": "main",
+                    "background": [
+                        {
+                            "color": "#0F0",
+                            "type": "solid"
+                        }
+                    ],
+                    "orientation": "vertical",
+                  "layout_provider" :{
+                    "height_variable_name": "heightMain",
+                    "width_variable_name": "widthMain"
+                  },
+                   
+                 
+                    
+                    "width" :{
+                       "type": "match_parent"
+                    },
+
+                    "height" : {
+                        "type": "match_parent"
+                     
+                    },
+         
+                    "items": [
+                        {
+                            "type" : "text",
+                            "text": "@{lastTappedBlock}",
+                            "background": [
+                                {
+                                    "type": "solid",
+                                    "color": "#F0F"
+                                }
+                            ],
+                            "margins": {
+                                "top": 16
+                                
+                            },
+                            "height" : {
+                                "type": "wrap_content"
+                            }
+                        },
+                        {
+                            "type" : "text",
+                            "text": "@{widthMain}",
+                            "background": [
+                                {
+                                    "type": "solid",
+                                    "color": "#F0F"
+                                }
+                            ],
+                            "margins": {
+                                "top": 16
+                            },
+                            "height" : {
+                                "type": "wrap_content"
+                            }
+                        },
+                        {
+                
+                            "type": "pager",
+                            "layout_mode" :{
+                                "type": "percentage",
+                                "page_width": {
+                                    "type": "percentage",
+                                    "value": 200
+                                }
+                            },
+                            "id": "someIDIDIDID",
+                            "item_spacing": 12,
+                            
+
+                            "width" :{
+                            
+                            "type": "match_parent"
+
+                            },
+
+                            "height" : {
+
+                                "type": "fixed",
+                                "value": 250
+
+                            }, 
+                            "item_builder": {
+                                
+                                "data": "@{items}",
+                                "data_element_name": "item",
+                                "prototypes": [ 
+                                    {
+                                            "div": {
+                                                "type": "image",
+                                                "image_url": "@{item.getUrl('text')}"
+                                        
+                                            }
+                                        }
+                                    ]
+                            }
+                        },
+                        {
+                            "type" : "grid",
+                            "id": "secondGrid",
+                            "column_count" : 2,
+                          
+                            "margins": {
+                                "right": 16
+                            },
+                            "content_alignment_horizontal" : "center",
+                            
+                            
+
+
+                            "items": [
+                                {
+                                    "id": "firstContainer",
+                                    "type": "second",
+                                    "action" : {
+                                         "log_id" : "id0",
+                                        "url": "div-action://set_variable?name=lastTappedBlock&value=11"
+                                    }
+                                },
+                                 {
+                                    "id": "firstContainer",
+                                    "type": "second",
+                                    "action" : {
+                                         "log_id" : "id0",
+                                        "url": "div-action://set_variable?name=lastTappedBlock&value=12"
+                                    }
+                                },
+                                 {
+                                    "id": "firstContainer",
+                                    "type": "second",
+                                    "action" : {
+                                         "log_id" : "id0",
+                                        "url": "div-action://set_variable?name=lastTappedBlock&value=13"
+                                    }
+                                },
+                                 {
+                                    "id": "firstContainer",
+                                    "type": "second",
+                                    "action" : {
+                                         "log_id" : "id0",
+                                        "url": "div-action://set_variable?name=lastTappedBlock&value=14"
+                                    }
+                                },
+                                {
+                                    "id": "firstContainer",
+                                    "type": "second",
+                                    "width" : {
+                                        "value" : "@{widthMain - 32}",
+                                        "type": "fixed"
+                                    },
+                                    "height" : {
+                                        "value" : 150,
+                                        "type": "fixed"
+                                    },
+                                    "column_span": 2,
+                                    "action" : {
+                                        "url": "div-action://set_variable?name=lastTappedBlock&value=14"
+                                    }
+                                },
+                                 {
+                                    "id": "firstContainer",
+                                    "type": "second",
+                                    "action" : {
+                                        "url": "div-action://set_variable?name=lastTappedBlock&value=15"
+                                    }
+                                },
+                                {
+                                    "id": "firstContainer",
+                                    "type": "second",
+                                    "action" : {
+                                         "log_id" : "id0",
+                                        "url": "div-action://set_variable?name=lastTappedBlock&value=16"
+                                    }
+                                }
+                            ]
+
+                        }
+                        
+                        
+                    ]   
+                }
+            }
+        ]
+    }
+}
