@@ -269,21 +269,6 @@
                                     "action" : {
                                         "url": "div-action://set_variable?name=lastTappedBlock&value=14"
                                     }
-                                },
-                                 {
-                                    "id": "firstContainer",
-                                    "type": "second",
-                                    "action" : {
-                                        "url": "div-action://set_variable?name=lastTappedBlock&value=15"
-                                    }
-                                },
-                                {
-                                    "id": "firstContainer",
-                                    "type": "second",
-                                    "action" : {
-                                         "log_id" : "id0",
-                                        "url": "div-action://set_variable?name=lastTappedBlock&value=16"
-                                    }
                                 }
                             ]
 
